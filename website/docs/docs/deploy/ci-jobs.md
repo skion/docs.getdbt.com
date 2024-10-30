@@ -41,7 +41,7 @@ To make CI job creation easier, many options on the **CI job** page are set to d
       To review the comparison report, navigate to the [Compare tab](/docs/deploy/run-visibility#compare-tab) in the job run's details. A summary of the report is also available from the pull request in your Git provider (see the [CI report example](#example-ci-report)). 
 
       :::info Optimization tip 
-      When you enable the **Run compare changes** checkbox, you can customize the comparison command to optimize your CI job. For example, if you have large models that take a long time to compare, you can exclude them to speed up the process using the [`--exclude` flag](/reference/node-selection/exclude). Use [custom commands](/docs/deploy/job-commands#compare-changes-custom-commands) to modify the selection criteria.
+      When you enable the **dbt compare** checkbox, you can customize the comparison command to optimize your CI job. For example, if you have large models that take a long time to compare, you can exclude them to speed up the process using the [`--exclude` flag](/reference/node-selection/exclude). Use [custom commands](/docs/deploy/job-commands#compare-changes-custom-commands) to modify the selection criteria.
       :::
 
     - **Compare changes against an environment (Deferral)** &mdash; By default, it’s set to the **Production** environment if you created one. This option allows dbt Cloud to check the state of the code in the PR against the code running in the deferred environment, so as to only check the modified code, instead of building the full table or the entire DAG.
