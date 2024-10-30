@@ -31,6 +31,16 @@ dbt reports the comparison differences in:
 
 <Lightbox src="/img/docs/dbt-cloud/example-ci-compare-changes-tab.png" width="85%" title="Example of the Compare tab" />
 
+### Considerations
+You can set a [event_time](/reference/resource-configs/event-time) for a model, seed, snapshot, or source to represent the actual timestamp of the event, rather than something like loading date. This configuration is important for certain features, such as [Incremental microbatch](/docs/build/incremental-microbatch) and compare changes in CI/CD workflows, where it ensures the same time-slice of data is accurately compared between your CI and production environments.
+
+When configured, `event_time` enables compare changes to:
+
+- Compare data in CI vs. production for overlapping times only, reducing false discrepancies.
+- Handle scenarios where CI contains fresher data than production by using only the overlapping timeframe, which avoids incorrect row-count changes.
+- Account for subset data builds in CI without flagging filtered-out rows as "deleted" when compared with production.
+- Coming soon, you'll be able to add a flag to the `dbt compare` command to select the specific time slice to compare.
+
 ## About the cached data
 
 After [comparing changes](#compare-changes), dbt Cloud stores a cache of no more than 100 records for each modified model for preview purposes. By caching this data, you can view the examples of changed data without rerunning the comparison against the data warehouse every time (optimizing for lower compute costs). To display the changes, dbt Cloud uses a cached version of a sample of the data records. These data records are queried from the database using the connection configuration (such as user, role, service account, and so on) that's set in the CI job's environment. 
