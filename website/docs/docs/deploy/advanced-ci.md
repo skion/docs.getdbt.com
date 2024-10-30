@@ -36,7 +36,6 @@ It's common for CI jobs to only [build a subset of data](/best-practices/best-pr
 
 - Compare data in CI against production for only the overlapping times, avoiding false positives and returning results faster.
 - Handle scenarios where CI contains fresher data than production by using only the overlapping timeframe, which avoids incorrect row-count changes.
-- Account for subset data builds in CI without flagging filtered-out rows as "deleted" when compared with production.
 - Coming soon, you'll be able to add a flag to the command list allowing you to select the specific time slice to compare.
 
 <Lightbox src="/img/docs/deploy/apples_to_apples.png" title="event_time ensures the same time-slice of data is accurately compared between your CI and production environments." />
