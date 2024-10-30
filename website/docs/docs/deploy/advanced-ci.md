@@ -32,9 +32,7 @@ dbt reports the comparison differences in:
 <Lightbox src="/img/docs/dbt-cloud/example-ci-compare-changes-tab.png" width="85%" title="Example of the Compare tab" />
 
 ### Considerations
-You can set a [event_time](/reference/resource-configs/event-time) for a model, seed, snapshot, or source to represent the actual timestamp of the event, rather than something like loading date. This configuration is important for certain features, such as [Incremental microbatch](/docs/build/incremental-microbatch) and compare changes in CI/CD workflows, where it ensures the same time-slice of data is accurately compared between your CI and production environments.
-
-When configured, `event_time` enables compare changes to:
+It's common for CI jobs to only [build a subset of data](/best-practices/best-practice-workflows#limit-the-data-processed-when-in-development), for example only the last 7 days of data. When an [`event_time`](/reference/resource-configs/event-time) column is specified on your model, compare changes can:
 
 - Compare data in CI against production for only the overlapping times, avoiding false positives and returning results faster.
 - Handle scenarios where CI contains fresher data than production by using only the overlapping timeframe, which avoids incorrect row-count changes.
