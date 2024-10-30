@@ -36,7 +36,7 @@ You can set a [event_time](/reference/resource-configs/event-time) for a model, 
 
 When configured, `event_time` enables compare changes to:
 
-- Compare data in CI versus production for overlapping times only, reducing false discrepancies.
+- Compare data in CI against production for only the overlapping times, avoiding false positives and returning results faster.
 - Handle scenarios where CI contains fresher data than production by using only the overlapping timeframe, which avoids incorrect row-count changes.
 - Account for subset data builds in CI without flagging filtered-out rows as "deleted" when compared with production.
 - Coming soon, you'll be able to add a flag to the command list allowing you to select the specific time slice to compare.
