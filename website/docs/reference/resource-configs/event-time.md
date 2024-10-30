@@ -141,7 +141,7 @@ sources:
 
 Set the `event_time` to the name of the field that represents the timestamp of the event, as opposed to a date like data loading date.  You can configure `event_time` for a [model](/docs/build/models), [seed](/docs/build/seeds), or [source](/docs/build/sources) in your `dbt_project.yml` file, property YAML file, or config block. 
 
-`event_time` is required for [Incremental mircrobatch](/docs/build/incremental-microbatch) and [Advanced CI's compare changes](/docs/deploy/advanced-ci#considerations) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
+`event_time` is required for [Incremental microbatch](/docs/build/incremental-microbatch) and [Advanced CI's compare changes](/docs/deploy/advanced-ci#considerations) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
 
 When you configure `event_time`, it enables compare changes to:
 
