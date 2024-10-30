@@ -3,7 +3,7 @@ title: "event_time"
 id: "event-time"
 sidebar_label: "event_time"
 resource_types: [models, seeds, source]
-description: "Setting the event_time config allows you to specify when an event occurred. It's required for microbatch and can added to ensure you're comparing overlapping times in compare changes"
+description: "dbt uses event_time to understand when an event occurred. When defined, event_time enables microbatch incremental models and more refined comparison of datasets during Advanced CI."
 datatype: string
 ---
 
