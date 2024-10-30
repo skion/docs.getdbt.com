@@ -39,7 +39,9 @@ When configured, `event_time` enables compare changes to:
 - Compare data in CI versus production for overlapping times only, reducing false discrepancies.
 - Handle scenarios where CI has "fresher" data than production by using only the overlapping timeframe, allowing you to avoid incorrect row-count changes.
 - Account for subset data builds in CI without flagging filtered-out rows as "deleted" when compared with production.
-- Coming soon, you'll be able to add a flag to the `dbt compare` command to select the specific time slice to compare.
+- Coming soon, you'll be able to add a flag to the command list allowing you to select the specific time slice to compare.
+
+<Lightbox src="/img/docs/deploy/apples_to_apples.png" title="event_time ensures the same time-slice of data is accurately compared between your CI and production environments." />
 
 ## About the cached data
 
