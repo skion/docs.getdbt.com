@@ -18,6 +18,10 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 \* The official release date for this new format of release notes is May 15th, 2024. Historical release notes for prior dates may not reflect all available features released earlier this year or their tenancy availability.
 
+## November 2024
+
+- **Enhancement**: For users that have Advanced CI's [compare changes](/docs/deploy/advanced-ci#compare-changes) feature enabled, you can use a custom dbt syntax to exclude specific large models (or groups of models with tags) to optimize running the comparison. Refer to [Compare changes custom commands](/docs/deploy/job-commands#compare-changes-custom-commands) for examples of how to customize the comparison command.
+
 ## October 2024
  
 - **Fix:** Previously, POST requests to the Jobs API with invalid `cron` strings would return HTTP response status code 500s but would update the underlying entity. Now, POST requests to the Jobs API with invalid `cron` strings will result in status code 400s, without the underlying entity being updated.
