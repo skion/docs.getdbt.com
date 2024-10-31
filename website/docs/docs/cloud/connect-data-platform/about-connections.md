@@ -24,7 +24,7 @@ You can connect to your database in dbt Cloud by:
 
 1. Click your name at the bottom left of your account
 2. Select **Your profile** from the menu
-3. Select **Projects** from the top left, and from there click **+ New Project**
+3. Select **Projects** from the top left, and from there click **New Project**
 
 <Lightbox src="/img/docs/connect-data-platform/choose-a-connection.png" title="Choose a connection"/>
 
