@@ -22,7 +22,7 @@ dbt Cloud can connect with a variety of data platform providers including:
 
 To connect to your database in dbt Cloud:
 
-1. Click your name at the bottom left of your account
+1. Click your account name at the bottom of the left-side menu and click **Account settings**
 2. Select **Your profile** from the menu
 3. Select **Projects** from the top left, and from there click **New Project**
 
