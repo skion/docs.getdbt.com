@@ -20,7 +20,7 @@ dbt Cloud can connect with a variety of data platform providers including:
 - [Starburst or Trino](/docs/cloud/connect-data-platform/connect-starburst-trino)
 - [Teradata](/docs/cloud/connect-data-platform/connect-teradata) <Lifecycle status="Preview" />
 
-You can connect to your database in dbt Cloud by:
+To connect to your database in dbt Cloud:
 
 1. Click your name at the bottom left of your account
 2. Select **Your profile** from the menu
