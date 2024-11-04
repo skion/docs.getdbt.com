@@ -65,7 +65,6 @@ Use the API to review who developed the models and who uses them to help establi
 Use the API to review dataset changes and uses by examining exposures, lineage, and dependencies. From the investigation, you can learn how to define and build more effective dbt projects. For more details, refer to [Development](/docs/dbt-cloud-apis/discovery-use-cases-and-examples#development).
 
 
-<Lightbox src="/img/docs/dbt-cloud/discovery-api/data-freshness-metadata.jpg" width="25%" title="Quality and freshness dashboard status tile defined via exposures"/> 
 
 <Lightbox src="/img/docs/collaborate/dbt-explorer/data-tile-pass.jpg" width="60%" title="Use exposures to embed data health tiles in your dashboards to distill trust signals for data consumers." />
 
