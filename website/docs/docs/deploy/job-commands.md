@@ -51,7 +51,7 @@ Use [selectors](/reference/node-selection/syntax) as a powerful way to select an
 #### Compare changes custom commands
 For users that have Advanced CI's [compare changes](/docs/deploy/advanced-ci#compare-changes) feature enabled, you can use a custom dbt syntax to exclude specific large models (or groups of models with tags) to optimize running the comparison. Running comparisons on large models can significantly increase the time it takes for CI jobs to complete. 
 
-Here are some examples of how you can customize the comparison command:
+The following examples highlight how you can customize the comparison command:
 
 - To exclude the large `fct_orders` model from the comparison, use the `--select state:modified --exclude fct_orders` syntax.
 - To exclude models based on tags, use `--select state modified --exclude tag:tagname_a tag:tagname_b`.
