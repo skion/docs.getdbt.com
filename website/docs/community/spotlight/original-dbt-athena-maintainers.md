@@ -7,7 +7,7 @@ description: |
   In the first periods, Winter 2022 and Spring 2023, we focused on contributing directly to the adapter, adding relevant features like Iceberg and Lake Formation support, and stabilizing some internal behaviour.
  
   On a second iteration our role was triaging, providing community support and bug fixing. We encouraged community members to make their first contributions, and helped them to merge their PRs.
-image: /img/community/spotlight/dbt-athena-groupheadshot.png
+image: /img/community/spotlight/dbt-athena-groupheadshot.jpg
 location: Europe
 jobTitle: A group of data-engineers
 companyName: Mix of companies
