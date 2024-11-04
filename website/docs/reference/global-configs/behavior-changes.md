@@ -163,4 +163,4 @@ In previous versions (dbt Core 1.8 and earlier), the MetricFlow time spine confi
 
 When the flag is set to `True`, dbt will continue to support the SQL file configuration. When the flag is set to `False`, dbt will raise a deprecation warning if it detects a MetricFlow time spine configured in a SQL file. 
 
-The MetricFlow YAML file should be named `models/_models.yml` and should be located in the `models` directory.
+The MetricFlow YAML file should have the `time_spine:` field. Refer to [MetricFlow timespine](/docs/build/metricflow-time-spine) for more details. 
