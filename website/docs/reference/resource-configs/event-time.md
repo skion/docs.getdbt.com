@@ -139,7 +139,18 @@ sources:
 
 ## Definition
 
-Set the `event_time` to the name of the field that represents the timestamp of the event, as opposed to a date like data loading date.  You can configure `event_time` for a [model](/docs/build/models), [seed](/docs/build/seeds), or [source](/docs/build/sources) in your `dbt_project.yml` file, property YAML file, or config block. 
+Set the `event_time` to the name of the field that represents the timestamp of the event, as opposed to a date-like data loading date.  You can configure `event_time` for a [model](/docs/build/models), [seed](/docs/build/seeds), or [source](/docs/build/sources) in your `dbt_project.yml` file, property YAML file, or config block. 
+
+Here are some examples of good and bad `event_time` columns:
+✅ Good:
+
+- `account_created_at` &mdash; This represents the specific time when an account was created, making it a fixed event in time.
+- `session_began_at` &mdash; This captures the exact timestamp when a user session started, which won’t change and directly ties to the event.
+
+❌ Bad:
+
+- `_fivetran_synced` &mdash; This isn't the time that the event happened, it's the time that the event was ingested.
+- `last_updated_at` &mdash; This isn't a good use case as this will keep changing over time. 
 
 `event_time` is required for [Incremental microbatch](/docs/build/incremental-microbatch) and [Advanced CI's compare changes](/docs/deploy/advanced-ci#speeding-up-comparisons) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
 
