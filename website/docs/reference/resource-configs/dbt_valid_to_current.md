@@ -56,7 +56,7 @@ By default, `dbt_valid_to` is set to `NULL` for current (most recent) records in
 
 If you prefer to use a specific value instead of `NULL` for `dbt_valid_to` in current and future records, you can use the `dbt_valid_to_current` configuration option. For example, setting a date in the far future, `9999-12-31`.
 
-The value assigned to `dbt_valid_to_current` should be a string representing a valid date or timestamp, depending on your database's requirements.
+The value assigned to `dbt_valid_to_current` should be a string representing a valid date or timestamp, depending on your database's requirements. Use expressions that work within the data platform.
 
 ### Managing records
 - For existing records &mdash; To avoid any unintentional data modification, dbt will _not_ automatically adjust the current value in the existing `dbt_valid_to` column. Existing current records will still have `dbt_valid_to` set to `NULL`.
