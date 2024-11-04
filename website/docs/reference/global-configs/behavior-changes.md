@@ -157,7 +157,7 @@ on-run-start:
 
 
 ### MetricFlow time spine YAML
-The flag is `False` by default.
+The `require_yaml_configuration_for_mf_time_spines` flag is set to `False` by default.
 
 Set the flag to `True` to require YAML configuration for MetricFlow time spine file for dbt Cloud Versionless or dbt Core 1.9 and later. In previous versions (dbt Core 1.8 and earlier), the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file.
 
