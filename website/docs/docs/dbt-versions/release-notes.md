@@ -22,7 +22,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 - **Fix**: This update improves [dbt Semantic Layer Tableau integration](/docs/cloud-integrations/semantic-layer/tableau) making query parsing more reliable. Some key fixes include:
   - Error messages for unsupported joins between saved queries and ALL tables.
   - Improved handling of queries when multiple tables are selected in a data source.
-  - Fixed a bug when an IN filter contained a lot of values
+  - Fixed a bug when an IN filter contained a lot of values.
   - Better error messaging for queries that can't be parsed correctly.
 
 ## October 2024
