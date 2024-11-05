@@ -690,7 +690,7 @@ return df
 
 ```
 
-In this example, dbt is configured to locate the `iris.csv` file in the designated Snowflake stage, `@dbt_integration_test`.
+This example uses `imports = ['@dbt_integration_test/iris.csv'],`, which tells dbt to locate the `iris.csv` file in the designated Snowflake stage, `@dbt_integration_test`.
 
 For more information on using this configuration, refer to [test_python_model.py](https://github.com/dbt-labs/dbt-snowflake/blob/1d299923e34c96f2e96a5215ac196658f86ce1d1/tests/functional/adapter/test_python_model.py#L90).
 
