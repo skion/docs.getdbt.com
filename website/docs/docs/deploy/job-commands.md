@@ -44,7 +44,7 @@ You can add or remove as many dbt commands as necessary for every job. However, 
 
 :::tip Using selectors
 
-Use [selectors](/reference/node-selection/syntax) as a powerful way to select and execute portions of your project in a job run. For example, to run tests for one _specific_ model, use the selector: `dbt test --select one_specific_model`. The job will still run if a selector doesn't match any models. 
+Use [selectors](/reference/node-selection/syntax) as a powerful way to select and execute portions of your project in a job run. For example, to run tests for `one_specific_model`, use the selector: `dbt test --select one_specific_model`. The job will still run if a selector doesn't match any models. 
 
 :::
 
