@@ -660,6 +660,40 @@ models:
 
 **Docs:** ["Developer Guide: Snowpark Python"](https://docs.snowflake.com/en/developer-guide/snowpark/python/index.html)
 
+#### Third-party snowflake packages
+
+To use a third-party Snowflake package that isn't available in Snowflake Anaconda, upload your package by following [this example](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-packages#importing-packages-through-a-snowflake-stage) then, configure `imports` in the dbt Python model to reference to the zip file in your Snowflake staging.
+
+Here’s a complete example configuration, including using `imports` in a Python model:
+
+```python
+
+import sys
+from snowflake.snowpark.types import StructType, FloatType, StringType, StructField
+
+def model( dbt, session):
+
+	dbt.config(
+    materialized='table',
+    imports = ['@dbt_integration_test/iris.csv'],
+    use_anonymous_sproc = False
+)
+schema_for_data_file = StructType([
+    StructField("length1", FloatType()),
+    StructField("width1", FloatType()),
+    StructField("length2", FloatType()),
+    StructField("width2", FloatType()),
+    StructField("variety", StringType()),
+])
+df = session.read.schema(schema_for_data_file).option("field_delimiter", ",").schema(schema_for_data_file).csv("@dbt_integration_test/iris.csv")
+return df
+
+```
+
+In this example, dbt is configured to locate the `iris.csv` file in the designated Snowflake stage, `@dbt_integration_test`.
+
+For more information on using this configuration, refer to [test_python_model.py](https://github.com/dbt-labs/dbt-snowflake/blob/1d299923e34c96f2e96a5215ac196658f86ce1d1/tests/functional/adapter/test_python_model.py#L90).
+
 </div>
 
 <div warehouse="Databricks">
