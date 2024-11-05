@@ -49,9 +49,11 @@ Use [selectors](/reference/node-selection/syntax) as a powerful way to select an
 :::
 
 #### Compare changes custom commands
-For users that have Advanced CI's [compare changes](/docs/deploy/advanced-ci#compare-changes) feature enabled, you can use a custom dbt syntax to exclude specific large models (or groups of models with tags) to optimize running the comparison. Running comparisons on large models can significantly increase the time it takes for CI jobs to complete. 
+For users that have Advanced CI's [compare changes](/docs/deploy/advanced-ci#compare-changes) feature enabled and selected the **dbt compare** checkbox, you can add custom dbt commands to optimize running the comparison (for example, to exclude specific large models, or groups of models with tags). Running comparisons on large models can significantly increase the time it takes for CI jobs to complete. 
 
-The following examples highlight how you can customize the comparison command:
+<Lightbox src="/img/docs/deploy/dbt-compare.jpg" width="90%" title="Add custom dbt commands to when using dbt compare." />
+
+The following examples highlight how you can customize the dbt compare command box:
 
 - Exclude the large `fct_orders` model from the comparison to run a CI job on fewer or smaller models and reduce job time/resource consumption. Use the following command:
   
