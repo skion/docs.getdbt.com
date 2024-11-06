@@ -37,7 +37,7 @@ It's common for CI jobs to only [build a subset of data](/best-practices/best-pr
 - Compare data in CI against production for only the overlapping times, avoiding false positives and returning results faster.
 - Handle scenarios where CI contains fresher data than production by using only the overlapping timeframe, which avoids incorrect row-count changes.
 
-<Lightbox src="/img/docs/deploy/apples_to_apples.png" title="event_time ensures the same time-slice of data is accurately compared between your CI and production environments." />
+<Lightbox src="/img/docs/deploy/apples_to_apples.png" width="90%" title="event_time ensures the same time-slice of data is accurately compared between your CI and production environments." />
 
 ## About the cached data
 

@@ -18,6 +18,13 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 \* The official release date for this new format of release notes is May 15th, 2024. Historical release notes for prior dates may not reflect all available features released earlier this year or their tenancy availability.
 
+## November 2024
+- **Fix**: This update improves [dbt Semantic Layer Tableau integration](/docs/cloud-integrations/semantic-layer/tableau) making query parsing more reliable. Some key fixes include:
+  - Error messages for unsupported joins between saved queries and ALL tables.
+  - Improved handling of queries when multiple tables are selected in a data source.
+  - Fixed a bug when an IN filter contained a lot of values.
+  - Better error messaging for queries that can't be parsed correctly.
+
 ## October 2024
  
 - **New**: Use the `event_time` configuration to specify when an event occurred. This configuration is required for [Incremental microbatch](/docs/build/incremental-microbatch) and can be added to ensure you're comparing overlapping times in [Advanced CI's compare changes](/docs/deploy/advanced-ci). Available in dbt Cloud Versionless and dbt Core v1.9 and higher. Refer to [event_time](/reference/resource-configs/event-time) for more information.
