@@ -203,7 +203,7 @@ Example in sql model config block:
 
 </File> 
 
-This setup sets `session_start_time` as the `event_time` for the `user_sessions` model, which makes sure the compare changes process uses this timestamp for time-slice comparisons or incremental microbatching.
+This setup sets `session_start_time` as the `event_time` for the `user_sessions` model. This makes sure the compare changes process uses this timestamp for time-slice comparisons or incremental microbatching.
 </TabItem> 
 
 <TabItem value="seeds" label="Seeds">
