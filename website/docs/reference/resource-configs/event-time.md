@@ -157,7 +157,7 @@ Here are some examples of good and bad `event_time` columns:
 When you configure `event_time`, it enables compare changes to:
 
 - Compare data in CI versus production for overlapping times only, reducing false discrepancies.
-- Handle scenarios where CI has "fresher" data than production by using only the overlapping timeframe, allowing you to avoid incorrect row-count changes.
+- Handle scenarios where CI has "fresher" data than production, by using only the overlapping timeframe, allowing you to avoid incorrect row-count changes.
 - Account for subset data builds in CI without flagging filtered-out rows as "deleted" when compared with production.
 
 ## Examples
