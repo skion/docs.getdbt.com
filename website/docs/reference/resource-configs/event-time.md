@@ -233,7 +233,7 @@ seeds:
 ```
 </File>
 
-This setup sets `record_timestamp` as the `event_time` for `my_seed`. This ensures that the `record_timestamp` is used consistently for compare changes processes or incremental microbatching.
+This setup sets `record_timestamp` as the `event_time` for `my_seed`. It ensures that the `record_timestamp` is used consistently in [Advanced CI's compare changes](/docs/deploy/advanced-ci#speeding-up-comparisons) or [incremental microbatching](/docs/build/incremental-microbatch).
 
 </TabItem> 
 <TabItem value="sources" label="Sources">
