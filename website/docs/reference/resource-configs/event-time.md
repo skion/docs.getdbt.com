@@ -157,8 +157,8 @@ Here are some examples of good and bad `event_time` columns:
 When you configure `event_time`, it enables compare changes to:
 
 - Compare data in CI versus production for overlapping times only, reducing false discrepancies.
-- Handle scenarios where CI has "fresher" data than production by using only the overlapping timeframe, allowing you to avoid incorrect row-count changes.
-- Account for subset data builds in CI without flagging filtered-out rows as "deleted" when compared with production.
+- Handle scenarios where CI has "fresher" data than production, by using only the overlapping timeframe, allowing you to avoid incorrect row-count changes.
+- Accounts for subset data builds in CI without flagging filtered-out rows as "deleted" when compared with production.
 
 ## Examples
 
@@ -203,7 +203,7 @@ Example in sql model config block:
 
 </File> 
 
-This setup sets `session_start_time` as the `event_time` for the `user_sessions` model, which makes sure the compare changes process uses this timestamp for time-slice comparisons or incremental microbatching.
+This setup sets `session_start_time` as the `event_time` for the `user_sessions` model. This makes sure the compare changes process uses this timestamp for time-slice comparisons or incremental microbatching.
 </TabItem> 
 
 <TabItem value="seeds" label="Seeds">
@@ -233,7 +233,7 @@ seeds:
 ```
 </File>
 
-This setup sets `record_timestamp` as the `event_time` for `my_seed`. This ensures that the `record_timestamp` is used consistently for compare changes processes or incremental microbatching.
+This setup sets `record_timestamp` as the `event_time` for `my_seed`. It ensures that the `record_timestamp` is used consistently in [Advanced CI's compare changes](/docs/deploy/advanced-ci#speeding-up-comparisons) or [incremental microbatching](/docs/build/incremental-microbatch).
 
 </TabItem> 
 <TabItem value="sources" label="Sources">
