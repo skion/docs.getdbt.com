@@ -32,7 +32,7 @@ On the audit log page, you will see a list of various events and their associate
 
 ### Event details
 
-Click the event card to see the details about the activity that triggered the event. This view provides important details, including when it happened and what type of event was triggered. For example, if someone changes the settings for a job, you can use the event details to see which job was changed (type of event: `job_definition.Changed`), by whom (person who triggered the event: `actor`), and when (time it was triggered: `created_at_utc`). For types of events and their descriptions, see [Events in audit log](#events-in-audit-log).
+Click the event card to see the details about the activity that triggered the event. This view provides important details, including when it happened and what type of event was triggered. For example, if someone changes the settings for a job, you can use the event details to see which job was changed (type of event: `job_definition.Changed`), by whom (person who triggered the event: `actor`), and when (time it was triggered: `created_at_utc`). For types of events and their descriptions, see [Events in audit log](#audit-log-events).
 
 The event details provide the key factors of an event:
 
@@ -60,7 +60,6 @@ The audit log supports various events for different objects in dbt Cloud. You wi
 | Event Name                 | Event Type                               | Description                                            |
 | -------------------------- | ---------------------------------------- | ------------------------------------------------------ |
 | Auth Provider Changed      | auth_provider.Changed          | Authentication provider settings changed               |
-| Credential Login Failed    | auth.CredentialsLoginFailed    | User login via username and password failed            |
 | Credential Login Succeeded | auth.CredentialsLoginSucceeded | User successfully logged in with username and password |
 | SSO Login Failed           | auth.SsoLoginFailed            | User login via SSO failed                              |
 | SSO Login Succeeded        | auth.SsoLoginSucceeded         | User successfully logged in via SSO  
