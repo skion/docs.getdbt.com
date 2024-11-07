@@ -26,7 +26,7 @@ The following tools integrate with the dbt Semantic Layer:
     <Card
       title="Dot"
       link="https://docs.getdot.ai/dot/integrations/dbt-semantic-layer"
-      body="Enable everyone to analyze data with AI in Slack or Teams"
+      body="Enable everyone to analyze data with AI in Slack or Teams."
       icon="dot-ai"/>
       <a href="https://docs.getdot.ai/dot/integrations/dbt-semantic-layer"
       className="external-link"
