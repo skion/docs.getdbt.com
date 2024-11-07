@@ -212,7 +212,7 @@ Currently, `on_schema_change` only tracks top-level column changes. It does not 
 
 ### Default behavior
 
-This is the behavior if `on_schema_change: ignore`, which is set by default, and on older versions of dbt.
+This is the behavior if `on_schema_change: ignore`, which is set by default.
 
 If you add a column to your incremental model, and execute a `dbt run`, this column will _not_ appear in your target table.
 
