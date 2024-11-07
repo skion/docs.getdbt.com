@@ -6,13 +6,7 @@ description: "Embed data health tiles in your dashboards to distill trust signal
 image: /img/docs/collaborate/dbt-explorer/data-tile-pass.jpg
 ---
 
-# Embed data health tile in dashboards <Lifecycle status='beta' />
-
 With data health tiles, stakeholders will get an at-a-glance confirmation on whether the data they’re looking at is stale or degraded. This trust signal allows teams to immediately go back into Explorer to see more details and investigate issues.
-
-:::info Available in beta
-Data health tile is currently available in open beta.
-:::
 
 The data health tile:
 
@@ -98,7 +92,7 @@ Follow these steps to embed the data health tile in PowerBI:
 
     ```html
         Website =
-        "<iframe src='https://1234.metadata.us1.dbt.com/exposure-tile?uniqueId=exposure.jaffle_shop.OrderQualityDashboard&environmentType=staging&environmentId=123456789&token=YOUR_METADATA_TOKEN' title='Exposure status tile' height='400'></iframe>"
+        "<iframe src='https://1234.metadata.ACCESS_URL/exposure-tile?uniqueId=exposure.EXPOSURE_NAME&environmentType=staging&environmentId=123456789&token=YOUR_METADATA_TOKEN' title='Exposure status tile' height='400'></iframe>"
     ```
 
     <Lightbox src="/img/docs/collaborate/dbt-explorer/power-bi-measure-tools.png" width="90%" title="In the 'Measure tools' tab, replace your values with the iFrame code."/>
@@ -122,19 +116,38 @@ Follow these steps to embed the data health tile in Tableau:
 <Lightbox src="/img/docs/collaborate/dbt-explorer/tableau-example.png" width="80%" title="Embed data health tile iFrame in Tableau"/>
 
 1. Create a dashboard in Tableau and connect to your database to pull in the data.
-2. Ensure you've copied the iFrame snippet available in dbt Explorer's **Data health** section, under the **Embed data health into your dashboard** toggle.
-3. Embed the snippet in your dashboard.
+2. Ensure you've copied the URL or iFrame snippet available in dbt Explorer's **Data health** section, under the **Embed data health into your dashboard** toggle.
+3. Insert a **Web Page** object.
+4. Insert the URL and click **Ok**.
 
-    `<iframe src='https://metadata.YOUR_ACCESS_URL/exposure-tile?uniqueId=<exposure_unique_id>&environmentType=production&environmentId=<environment_id>&token=<metadata_token>' />`
+    ```html
+    https://metadata.ACCESS_URL/exposure-tile?uniqueId=exposure.EXPOSURE_NAME&environmentType=production&environmentId=220370&token=<YOUR_METADATA_TOKEN>
+    ```
 
     *Note, replace the placeholders with your actual values.*
-
-   - **For job-based exposure tile** &mdash; Insert the following fields into the following iFrame. Then embed them with your dashboard. The next [section](#job-based-data-health) will have more details on the job-based exposure tile.
-      - `<iframe src='https://metadata.YOUR_ACCESS_URL/exposure-tile?name=<exposure_name>&environment_id=<environment_id>&token=<metadata_token>' />`
-
-        *Note, replace the placeholders with your actual values.*
+5. You should now see the data health tile embedded in your Tableau dashboard.
 
 </TabItem>
+
+<TabItem value="sigma" label="Sigma example">
+
+Follow these steps to embed the data health tile in Sigma:
+
+<Lightbox src="/img/docs/collaborate/dbt-explorer/sigma-example.jpg" width="90%" title="Embed data health tile in Sigma"/>
+
+1. Create a dashboard in Sigma and connect to your database to pull in the data.
+2. Ensure you've copied the URL or iFrame snippet available in dbt Explorer's **Data health** section, under the **Embed data health into your dashboard** toggle.
+3. Add a new embedded UI element in your Sigma Workbook in the following format:
+
+    ```html
+    https://metadata.ACCESS_URL/exposure-tile?uniqueId=exposure.EXPOSURE_NAME&environmentType=production&environmentId=ENV_ID_NUMBER&token=<YOUR_METADATA_TOKEN>
+    ```
+
+    *Note, replace the placeholders with your actual values.*
+4. You should now see the data health tile embedded in your Sigma dashboard.
+
+</TabItem>
+
 </Tabs>
 
 ## Job-based data health <Lifecycle status="Legacy"/>

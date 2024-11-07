@@ -89,7 +89,7 @@ export default function DocRootLayoutMain({
       if (new Date() > new Date(EOLDate)) {
         setEOLData({
           showEOLBanner: true,
-          EOLBannerText: `This version of dbt Core is <a href="/docs/dbt-versions/core">no longer supported</a>. There will be no more patches or security fixes. For improved performance, security, and features, upgrade to the <a href="https://github.com/dbt-labs/dbt-core/releases/latest"> latest stable version</a>.`,
+          EOLBannerText: `This version of dbt Core is <a href="/docs/dbt-versions/core">no longer supported</a>. There will be no more patches or security fixes. For improved performance, security, and features, upgrade to the <a href="https://github.com/dbt-labs/dbt-core/releases/latest"> latest stable version</a>. Some dbt Cloud customers might have an extended <a href="/docs/dbt-versions/core">critical support window</a>. `,
         });
       } else if (new Date() > threeMonths) {
         setEOLData({
@@ -119,34 +119,6 @@ export default function DocRootLayoutMain({
           hiddenSidebarContainer && styles.docItemWrapperEnhanced
         )}
       >
-        {!pageAvailable &&
-          dbtVersion && (
-            <div className={styles.versionBanner}>
-              <Admonition
-                type="caution"
-                title={`${hasFirstAvailableVersion ? "New feature!" : lastAvailableVersion ? "Old feature" : "Note"}`}
-                icon={
-                  hasFirstAvailableVersion
-                    ? "🎉"
-                    : lastAvailableVersion
-                      ? "❗"
-                      : ""
-                }
-              >
-                <p style={{ marginTop: "5px", marginBottom: "0" }}>
-                  Unfortunately, this feature is not available in dbt Core
-                  version {dbtVersion}
-                </p>
-                {hasFirstAvailableVersion ? (
-                  <p>
-                    {" "}
-                    You should upgrade to {firstAvailableVersion} or later if
-                    you want to use this feature.
-                  </p>
-                ) : null}
-              </Admonition>
-            </div>
-          )}
         {PreData.showisPrereleaseBanner && (
           <div className={styles.versionBanner}>
             <Admonition type="caution" title="Warning">
