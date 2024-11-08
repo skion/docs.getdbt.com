@@ -35,17 +35,22 @@ This credential controls the physical access to underlying data accessed by the 
 
 *If you're on a Team plan and need to add more credentials, consider upgrading to our [Enterprise plan](https://www.getdbt.com/contact). Enterprise users can refer to [Add more credentials](#4-add-more-credentials) for detailed steps on adding multiple credentials.*
 
-1. After selecting the deployment environment, you should see the **Credentials & service tokens** page. 
-2. Click the **Add Semantic Layer credential** button. 
-3. In the **1. Add credentials** section, enter the credentials specific to your data platform that you want the Semantic Layer to use.
+#### 1.  Select deployment environment
+   - After selecting the deployment environment, you should see the **Credentials & service tokens** page. 
+   - Click the **Add Semantic Layer credential** button. 
+
+#### 2. Configure credential
+   - In the **1. Add credentials** section, enter the credentials specific to your data platform that you want the Semantic Layer to use.
    - Use credentials with minimal privileges. The Semantic Layer requires read access to the schema(s) containing the dbt models used in your semantic models for downstream applications
    - <SLEnvVars/>
 
 <Lightbox src="/img/docs/dbt-cloud/semantic-layer/sl-add-credential.jpg" width="55%" title="Add credentials and map them to a service token. " />
 
-4. After adding credentials, scroll to **2. Map new service token**.
-5. Name the token and ensure the permission set includes 'Semantic Layer Only' and 'Metadata Only'.
-6. Click **Save**. Once the token is generated, you won't be able to view this token again so make sure to record it somewhere safe.
+#### 3. Create or link service tokens
+   - If you have permission to create service tokens, you’ll see the **Map new service token** option after adding the credential. Name the token, set permissions to 'Semantic Layer Only' and 'Metadata Only', and click **Save**. 
+   - Once the token is generated, you won't be able to view this token again so make sure to record it somewhere safe.
+   - If you don’t have access to create service tokens, you’ll see a message prompting you to contact your admin to create one for you. Admins can create and link tokens as needed.
+   <Lightbox src="/img/docs/dbt-cloud/semantic-layer/sl-credential-no-service-token.jpg" width="80%" title="If you don’t have access to create service tokens, you can create a credential and contact your admin to create one for you." />
 
 :::info
 - Team plans can create multiple service tokens that link to a single underlying credential, but each project can only have one credential.
