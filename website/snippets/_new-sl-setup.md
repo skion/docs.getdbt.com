@@ -50,7 +50,7 @@ This credential controls the physical access to underlying data accessed by the 
    - If you have permission to create service tokens, you’ll see the **Map new service token** option after adding the credential. Name the token, set permissions to 'Semantic Layer Only' and 'Metadata Only', and click **Save**. 
    - Once the token is generated, you won't be able to view this token again so make sure to record it somewhere safe.
    - If you don’t have access to create service tokens, you’ll see a message prompting you to contact your admin to create one for you. Admins can create and link tokens as needed.
-   <Lightbox src="/img/docs/dbt-cloud/semantic-layer/sl-credential-no-service-token.jpg" width="80%" title="If you don’t have access to create service tokens, you can create a credential and contact your admin to create one for you." />
+   <Lightbox src="/img/docs/dbt-cloud/semantic-layer/sl-credential-no-service-token.jpg" width="70%" title="If you don’t have access to create service tokens, you can create a credential and contact your admin to create one for you." />
 
 :::info
 - Team plans can create multiple service tokens that link to a single underlying credential, but each project can only have one credential.
