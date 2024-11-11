@@ -139,26 +139,20 @@ sources:
 
 ## Definition
 
-Set the `event_time` to the name of the field that represents the timestamp of the event, as opposed to a date-like data loading date.  You can configure `event_time` for a [model](/docs/build/models), [seed](/docs/build/seeds), or [source](/docs/build/sources) in your `dbt_project.yml` file, property YAML file, or config block. 
+Set the `event_time` to the name of the field that represents the timestamp of the event, as opposed to an event ingestion date.  You can configure `event_time` for a [model](/docs/build/models), [seed](/docs/build/seeds), or [source](/docs/build/sources) in your `dbt_project.yml` file, property YAML file, or config block. 
 
 Here are some examples of good and bad `event_time` columns:
-✅ Good:
 
-- `account_created_at` &mdash; This represents the specific time when an account was created, making it a fixed event in time.
-- `session_began_at` &mdash; This captures the exact timestamp when a user session started, which won’t change and directly ties to the event.
+- ✅ Good:
+  - `account_created_at` &mdash; This represents the specific time when an account was created, making it a fixed event in time.
+  - `session_began_at` &mdash; This captures the exact timestamp when a user session started, which won’t change and directly ties to the event.
 
-❌ Bad:
+- ❌ Bad:
 
-- `_fivetran_synced` &mdash; This isn't the time that the event happened, it's the time that the event was ingested.
-- `last_updated_at` &mdash; This isn't a good use case as this will keep changing over time. 
+  - `_fivetran_synced` &mdash; This isn't the time that the event happened, it's the time that the event was ingested.
+  - `last_updated_at` &mdash; This isn't a good use case as this will keep changing over time. 
 
-`event_time` is required for [Incremental microbatch](/docs/build/incremental-microbatch) and [Advanced CI's compare changes](/docs/deploy/advanced-ci#speeding-up-comparisons) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
-
-When you configure `event_time`, it enables compare changes to:
-
-- Compare data in CI versus production for overlapping times only, reducing false discrepancies.
-- Handle scenarios where CI has "fresher" data than production, by using only the overlapping timeframe, allowing you to avoid incorrect row-count changes.
-- Accounts for subset data builds in CI without flagging filtered-out rows as "deleted" when compared with production.
+`event_time` is required for [Incremental microbatch](/docs/build/incremental-microbatch) and highly recommended for [Advanced CI's compare changes](http://localhost:3000/docs/deploy/advanced-ci#speeding-up-comparisons) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
 
 ## Examples
 
@@ -203,7 +197,7 @@ Example in sql model config block:
 
 </File> 
 
-This setup sets `session_start_time` as the `event_time` for the `user_sessions` model. This makes sure the compare changes process uses this timestamp for time-slice comparisons or incremental microbatching.
+This setup sets `session_start_time` as the `event_time` for the `user_sessions` model.
 </TabItem> 
 
 <TabItem value="seeds" label="Seeds">
@@ -236,6 +230,38 @@ seeds:
 This setup sets `record_timestamp` as the `event_time` for `my_seed`. It ensures that the `record_timestamp` is used consistently in [Advanced CI's compare changes](/docs/deploy/advanced-ci#speeding-up-comparisons) or [incremental microbatching](/docs/build/incremental-microbatch).
 
 </TabItem> 
+
+<TabItem value="snapshot" label="Snapshots">
+
+Here's an example in the `dbt_project.yml` file:
+
+<File name='dbt_project.yml'>
+
+```yml
+snapshots:
+  my_project:
+    my_snapshot:
+      +event_time: record_timestamp
+```
+
+</File>
+
+Example in a snapshot properties YAML:
+
+<File name='my_project/properties.yml'>
+
+```yml
+snapshots:
+  - name: my_snapshot
+    config:
+      event_time: record_timestamp
+```
+</File>
+
+This setup sets `record_timestamp` as the event_time for `my_snapshot`. Setting `event_time` allows the snapshot to compare data based on the event occurrence and not ingestion time. It also ensures `record_timestamp` is used consistently in [Advanced CI's compare changes](/docs/deploy/advanced-ci#speeding-up-comparisons) or [incremental microbatching](/docs/build/incremental-microbatch).
+
+</TabItem> 
+
 <TabItem value="sources" label="Sources">
 
 Here's an example of source properties YAML file:
