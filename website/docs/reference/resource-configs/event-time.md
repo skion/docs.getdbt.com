@@ -258,7 +258,7 @@ snapshots:
 ```
 </File>
 
-This setup sets `record_timestamp` as the event_time for `my_snapshot`. Setting `event_time` allows the snapshot to compare data based on the event occurrence and not ingestion time. It also ensures `record_timestamp` is used consistently in [Advanced CI's compare changes](/docs/deploy/advanced-ci#speeding-up-comparisons) or [incremental microbatching](/docs/build/incremental-microbatch).
+This setup sets `record_timestamp` as the `event_time` for `my_snapshot`. 
 
 </TabItem> 
 
