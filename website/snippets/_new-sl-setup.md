@@ -115,7 +115,7 @@ To re-enable the dbt Semantic Layer setup in the future, you will need to recrea
  The following are the additional flexible configurations for Semantic Layer credentials.
 
 ### Map service tokens to credentials
-- After configuring your environment, you can map additional service tokens to the same credential if you have the required permissions.
+- After configuring your environment, you can map additional service tokens to the same credential if you have the required [permissions](/docs/cloud/manage-access/about-user-access#permission-sets).
 - Go to the **Credentials & service tokens** page and click the **+Add Service Token** button in the **Linked Service Tokens** section.
 - Type the service token name and select the permission set you need (Semantic Layer Only and Metadata Only).
 - Click **Save** to link the service token to the credential.
