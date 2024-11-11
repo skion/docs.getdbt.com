@@ -668,31 +668,30 @@ Here’s a complete example configuration, including using `imports` in a Python
 
 ```python
 
-import sys
-from snowflake.snowpark.types import StructType, FloatType, StringType, StructField
+def model(dbt, session):
+    dbt.config(materialized = "table", packages = ["nltk", "pandas"], imports = ['@DBT_DEPS/nltk_data/sentiment/vader_lexicon.zip'])
+    
+    df_reviews = dbt.ref("stg_reviews")
 
-def model( dbt, session):
+    move_files()
 
-	dbt.config(
-    materialized='table',
-    imports = ['@dbt_integration_test/iris.csv'],
-    use_anonymous_sproc = False
-)
-schema_for_data_file = StructType([
-    StructField("length1", FloatType()),
-    StructField("width1", FloatType()),
-    StructField("length2", FloatType()),
-    StructField("width2", FloatType()),
-    StructField("variety", StringType()),
-])
-df = session.read.schema(schema_for_data_file).option("field_delimiter", ",").schema(schema_for_data_file).csv("@dbt_integration_test/iris.csv")
-return df
+    nltk.data.path.append(BASE_TEMP_DIR)
+
+    pandas_df = df_reviews.to_pandas()    
+
+    sia = SentimentIntensityAnalyzer()
+
+    pandas_df["REVIEW_POSITIVE"] = pandas_df["REVIEW_TEXT"].apply(lambda x:sia.polarity_scores(x)['compound'] > 0)
+
+    final_df = session.write_pandas(pandas_df, "write_pandas_table", auto_create_table=True, table_type="temp")
+
+    return final_df.select(col("order_id"), col("review_text"), col("review_positive"))
 
 ```
 
-In this example, dbt is configured to locate the `iris.csv` file in the designated Snowflake stage, `@dbt_integration_test`.
+In this example, dbt is configured to locate the `vader_lexicon.zip` file in the designated Snowflake stage, `@DBT_DEPS`.
 
-For more information on using this configuration, refer to [test_python_model.py](https://github.com/dbt-labs/dbt-snowflake/blob/1d299923e34c96f2e96a5215ac196658f86ce1d1/tests/functional/adapter/test_python_model.py#L90).
+For more information on using this configuration, refer to [Snowflake's documentation](https://community.snowflake.com/s/article/how-to-use-other-python-packages-in-snowpark) on uploading and using other python packages in Snowpark not published on Snowflake's Anaconda channel.
 
 </div>
 
