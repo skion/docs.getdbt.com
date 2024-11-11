@@ -72,10 +72,12 @@ dbt Cloud Enterprise plans can optionally add multiple credentials and map them 
 
 We recommend configuring credentials and service tokens to reflect your teams and their roles. For example, create tokens or credentials that align with your team's needs, such as providing access to finance-related schemas to the Finance team.
 
-Note that: 
+<Expandable alt_header="Considerations for linking credentials">
+
 - Admins can link multiple service tokens to a single credential within a project, but each service token can only be linked to one credential per project.
 - When you send a request through the APIs, the service token of the linked credential will follow access policies of the underlying view and tables used to build your semantic layer requests.
 - <SLEnvVars/>
+</Expandable>
 
 #### 1. Add more credentials
 - After configuring your environment, on the **Credentials & service tokens** page, click the **Add Semantic Layer credential** button to create multiple credentials and map them to a service token. <br />
