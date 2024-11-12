@@ -669,29 +669,31 @@ Here’s a complete example configuration, including using `imports` in a Python
 ```python
 
 def model(dbt, session):
-    dbt.config(materialized = "table", packages = ["nltk", "pandas"], imports = ['@DBT_DEPS/nltk_data/sentiment/vader_lexicon.zip'])
+    # Configure the model
+    dbt.config(
+        materialized="table",
+        imports=["@mystage/mycustompackage.zip"],  # Specify the external package location
+    )
     
-    df_reviews = dbt.ref("stg_reviews")
+    # Example data transformation using the imported package
+    # (Assuming `some_external_package` has a function we can call)
+    data = {
+        "name": ["Alice", "Bob", "Charlie"],
+        "score": [85, 90, 88]
+    }
+    df = pd.DataFrame(data)
 
-    move_files()
-
-    nltk.data.path.append(BASE_TEMP_DIR)
-
-    pandas_df = df_reviews.to_pandas()    
-
-    sia = SentimentIntensityAnalyzer()
-
-    pandas_df["REVIEW_POSITIVE"] = pandas_df["REVIEW_TEXT"].apply(lambda x:sia.polarity_scores(x)['compound'] > 0)
-
-    final_df = session.write_pandas(pandas_df, "write_pandas_table", auto_create_table=True, table_type="temp")
-
-    return final_df.select(col("order_id"), col("review_text"), col("review_positive"))
+    # Process data with the external package
+    df["adjusted_score"] = df["score"].apply(lambda x: some_external_package.adjust_score(x))
+    
+    # Return the DataFrame as the model output
+    return df
 
 ```
 
-In this example, dbt is configured to locate the `vader_lexicon.zip` file in the designated Snowflake stage, `@DBT_DEPS`.
-
 For more information on using this configuration, refer to [Snowflake's documentation](https://community.snowflake.com/s/article/how-to-use-other-python-packages-in-snowpark) on uploading and using other python packages in Snowpark not published on Snowflake's Anaconda channel.
+
+To use external libraries, you can also use the [`zip`](https://github.com/phdata/dbt_snowpark_sentiment_example/blob/2c5528278e14dba678fb7773cca2d47f8adbeb4d/models/reviews.py#L30) approach.
 
 </div>
 
