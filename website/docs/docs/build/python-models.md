@@ -664,7 +664,7 @@ models:
 
 To use a third-party Snowflake package that isn't available in Snowflake Anaconda, upload your package by following [this example](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-packages#importing-packages-through-a-snowflake-stage), and then configure the `imports` setting in the dbt Python model to reference to the zip file in your Snowflake staging.
 
-Here’s a complete example configuration, including using `imports` in a Python model:
+Here’s a complete example configuration using a zip file, including using `imports` in a Python model:
 
 ```python
 
