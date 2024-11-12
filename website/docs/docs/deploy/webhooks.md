@@ -36,7 +36,7 @@ You can also check out the free [dbt Fundamentals course](https://learn.getdbt.c
 
 ## Create a webhook subscription {#create-a-webhook-subscription}
 
-Navigate to **Account Settings** in dbt Cloud (by clicking your account name from the left side panel), click **Create New Webhook** in the **Webhooks** section. You can find the appropriate dbt Cloud access URL for your region and plan with [Regions & IP addresses](/docs/cloud/about-cloud/access-regions-ip-addresses).
+Navigate to **Account settings** in dbt Cloud (by clicking your account name from the left side panel), and click **Create New Webhook** in the **Webhooks** section. You can find the appropriate dbt Cloud access URL for your region and plan with [Regions & IP addresses](/docs/cloud/about-cloud/access-regions-ip-addresses).
 
 To configure your new webhook: 
 
