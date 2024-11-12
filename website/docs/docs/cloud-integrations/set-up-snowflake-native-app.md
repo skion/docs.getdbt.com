@@ -45,7 +45,8 @@ The following are the prerequisites for dbt Cloud and Snowflake.
 Configure dbt Cloud and Snowflake Cortex to power the **Ask dbt** chatbot.
 
 1. In dbt Cloud, browse to your Semantic Layer configurations. 
-    1. From the gear menu, select **Account settings**. In the left sidebar, select **Projects** and choose your dbt project from the project list. 
+    1. Navigate to the left hand side panel and click your account name. From there, select **Account settings**. 
+    1. In the left sidebar, select **Projects** and choose your dbt project from the project list. 
     1. In the **Project details** panel, click the **Edit Semantic Layer Configuration** link (which is below the **GraphQL URL** option). 
 1. In the **Semantic Layer Configuration Details** panel, identify the Snowflake credentials (which you'll use to access Snowflake Cortex) and the environment against which the Semantic Layer is run. Save the username, role, and the environment in a temporary location to use later on. 
 
