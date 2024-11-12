@@ -693,7 +693,6 @@ def model(dbt, session):
 
 For more information on using this configuration, refer to [Snowflake's documentation](https://community.snowflake.com/s/article/how-to-use-other-python-packages-in-snowpark) on uploading and using other python packages in Snowpark not published on Snowflake's Anaconda channel.
 
-To use external libraries, you can also use the [`zip`](https://github.com/phdata/dbt_snowpark_sentiment_example/blob/2c5528278e14dba678fb7773cca2d47f8adbeb4d/models/reviews.py#L30) approach.
 
 </div>
 
