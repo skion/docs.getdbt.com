@@ -19,6 +19,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 \* The official release date for this new format of release notes is May 15th, 2024. Historical release notes for prior dates may not reflect all available features released earlier this year or their tenancy availability.
 
 ## November 2024
+- **New**: SQL linting in CI jobs is now generally available in dbt Cloud. You can enable SQL linting in your CI jobs, using [SQLFluff](https://sqlfluff.com/), to automatically lint all SQL files in your project as a run step before your CI job builds. Refer to [SQL linting](/docs/deploy/continuous-integration#sql-linting) for more information.
 - **Fix**: This update improves [dbt Semantic Layer Tableau integration](/docs/cloud-integrations/semantic-layer/tableau) making query parsing more reliable. Some key fixes include:
   - Error messages for unsupported joins between saved queries and ALL tables.
   - Improved handling of queries when multiple tables are selected in a data source.

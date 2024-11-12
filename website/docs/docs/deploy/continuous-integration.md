@@ -31,10 +31,10 @@ dbt Cloud deletes the temporary schema from your <Term id="data-warehouse" /> w
 
 The [dbt Cloud scheduler](/docs/deploy/job-scheduler) executes CI jobs differently from other deployment jobs in these important ways:
 
-- **Concurrent CI checks** &mdash; CI runs triggered by the same dbt Cloud CI job execute concurrently (in parallel), when appropriate.
-- **Smart cancellation of stale builds** &mdash; Automatically cancels stale, in-flight CI runs when there are new commits to the PR.
-- **Run slot treatment** &mdash; CI runs don't consume a run slot.
-- **SQL linting**<Lifecycle status="beta" /> &mdash; When enabled, automatically lints all SQL files in your project as a run step before your CI job builds.
+- [**Concurrent CI checks**](#concurrent-ci-checks) &mdash; CI runs triggered by the same dbt Cloud CI job execute concurrently (in parallel), when appropriate.
+- [**Smart cancellation of stale builds**](#smart-cancellation-of-stale-builds) &mdash; Automatically cancels stale, in-flight CI runs when there are new commits to the PR.
+- [**Run slot treatment**](#run-slot-treatment) &mdash; CI runs don't consume a run slot.
+- [**SQL linting**](#sql-linting) &mdash; When enabled, automatically lints all SQL files in your project as a run step before your CI job builds.
 
 ### Concurrent CI checks
 
@@ -56,10 +56,16 @@ When you push a new commit to a PR, dbt Cloud enqueues a new CI run for the late
 
 CI runs don't consume run slots. This guarantees a CI check will never block a production run.
 
-### SQL linting <Lifecycle status="beta" />
+### SQL linting
 
-When enabled for your CI job, dbt invokes [SQLFluff](https://sqlfluff.com/) which is a modular and configurable SQL linter that warns you of complex functions, syntax, formatting, and compilation errors. By default, it lints all the changed SQL files in your project (compared to the last deferred production state). 
+When [enabled for your CI job](/docs/deploy/ci-jobs#set-up-ci-jobs), dbt invokes [SQLFluff](https://sqlfluff.com/) which is a modular and configurable SQL linter that warns you of complex functions, syntax, formatting, and compilation errors. By default, it lints all the changed SQL files in your project (compared to the last deferred production state).
 
-If the linter runs into errors, you can specify whether dbt should stop running the job on error or continue running it on error. When failing jobs, it helps reduce compute costs by avoiding builds for pull requests that don't meet your SQL code quality CI check. 
+If the linter runs into errors, you can specify whether dbt should stop running the job on error or continue running it on error. When failing jobs, it helps reduce compute costs by avoiding builds for pull requests that don't meet your SQL code quality CI check.
 
-You can use [SQLFluff Configuration Files](https://docs.sqlfluff.com/en/stable/configuration/setting_configuration.html#configuration-files) to override the default linting behavior in dbt. Create an `.sqlfluff` configuration file in your project, add your linting rules to it, and dbt Cloud will use them when linting. For complete details, refer to [Custom Usage](https://docs.sqlfluff.com/en/stable/gettingstarted.html#custom-usage) in the SQLFluff documentation. 
+#### To configure SQLFluff linting:
+
+- Use [SQLFluff Configuration Files](https://docs.sqlfluff.com/en/stable/configuration/setting_configuration.html#configuration-files) to override the default linting behavior in dbt.
+- Create a `.sqlfluff` configuration file in your project, add your linting rules to it, and dbt Cloud will use them when linting.
+    - When configuring, you can use `dbt` as the templater (for example, `templater = dbt`)
+    - If you’re using the dbt Cloud IDE, dbt Cloud CLI, or any other editor, refer to [Customize linting](/docs/cloud/dbt-cloud-ide/lint-format#customize-linting) for guidance on how to add dbt-specific (or dbtonic) linting rules we use for own project.
+- For complete details, refer to [Custom Usage](https://docs.sqlfluff.com/en/stable/gettingstarted.html#custom-usage) in the SQLFluff documentation.
