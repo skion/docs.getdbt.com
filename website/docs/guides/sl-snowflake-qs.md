@@ -301,7 +301,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 <TabItem value="manual-connect" label="Connect manually">
 
 
-1. Create a new project in dbt Cloud. Navigate to **Account settings** (by going to your account name in the left side menu), and click **+ New Project**.
+1. Create a new project in dbt Cloud. Navigate to **Account settings** (by clicking on your account name in the left side menu), and click **+ New Project**.
 2. Enter a project name and click **Continue**.
 3. For the warehouse, click **Snowflake** then **Next** to set up your connection.
 
