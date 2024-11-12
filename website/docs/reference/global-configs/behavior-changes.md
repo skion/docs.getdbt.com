@@ -174,4 +174,4 @@ Set the flag is set to `True` if you have a custom microbatch macro set up in yo
 
 If you have a custom microbatch macro and the flag is left as `False`, dbt will issue a deprecation warning.
 
-Previously, users needed to set the `DBT_EXPERIMENTAL_MICROBATCH` environment variable to `True` to prevent unintended interactions with existing custom incremental strategies. But this is no longer necessary, and setting `DBT_EXPERMINENTAL_MICROBATCH` will no longer have an effect on runtime functionality.
+Previously, users needed to set the `DBT_EXPERIMENTAL_MICROBATCH` environment variable to `True` to prevent unintended interactions with existing custom incremental strategies. But this is no longer necessary, as setting `DBT_EXPERMINENTAL_MICROBATCH` will no longer have an effect on runtime functionality.
