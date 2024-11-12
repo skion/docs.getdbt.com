@@ -96,7 +96,7 @@ Forcing package upgrades may introduce build inconsistencies unless carefully ma
 
 ### Adding specific packages
 
-The `dbt deps` command can add or update package configurations directly, sparing you from remembering exact syntax. 
+The `dbt deps` command can add or update package configurations directly, saving you from remembering exact syntax. 
 
 #### Hub packages (default)
 
