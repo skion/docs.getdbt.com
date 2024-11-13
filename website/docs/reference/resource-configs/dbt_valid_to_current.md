@@ -50,7 +50,7 @@ Use the `dbt_valid_to_current` config to set a custom future date for `dbt_valid
 
 This approach makes it easier to assign a custom date date, work in a join, or perform range-based filtering that require an end date.
 
-## Usage
+### Considerations
 
 - **Date expressions** &mdash; Provide a hardcoded date expression compatible with your data platform, such as to_date`('9999-12-31')`. Note that syntax may vary by warehouse (for example, to_date('YYYY-MM-DD') or date(YYYY, MM, DD)).
 - **Jinja limitation** &mdash; `dbt_valid_to_current` only accepts static SQL expressions. Jinja expressions (like `{{ var('my_future_date') }}`) are not supported.
