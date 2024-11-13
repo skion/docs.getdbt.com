@@ -2,7 +2,7 @@
 resource_types: [snapshots]
 description: "Snapshot dbt_valid_to_current custom date"
 datatype: "{<dictionary>}"
-default_value: {"dbt_valid_from": "dbt_valid_from", "dbt_valid_to": "dbt_valid_to", "dbt_scd_id": "dbt_scd_id", "dbt_updated_at": "dbt_updated_at"}
+default_value: {NULL}
 id: "dbt_valid_to_current"
 ---
 
@@ -48,7 +48,13 @@ snapshots:
 
 Use the `dbt_valid_to_current` config to set a custom future date for `dbt_valid_to` in new snapshot columns. When set, dbt will use this specified value instead of `NULL` for `dbt_valid_to` in the snapshot table.
 
-This simplifies makes it easier to assign date, work in a join, and range-based filtering with an end date.
+This approach makes it easier to assign a custom date date, work in a join, or perform range-based filtering that require an end date.
+
+## Usage
+
+- **Date expressions** &mdash; Provide a hardcoded date expression compatible with your data platform, such as to_date`('9999-12-31')`. Note that syntax may vary by warehouse (for example, to_date('YYYY-MM-DD') or date(YYYY, MM, DD)).
+- **Jinja limitation** &mdash; `dbt_valid_to_current` only accepts static SQL expressions. Jinja expressions (like `{{ var('my_future_date') }}`) are not supported.
+- **Deferral and `state:modified`** &mdash; Changes to `dbt_valid_to_current` are compatible with deferral and `--select state:modified`. When this configuration changes, it'll appear in `state:modified` selections, raising a warning to manually make the necessary snapshot updates.
 
 ## Default
 
@@ -59,9 +65,9 @@ If you prefer to use a specific value instead of `NULL` for `dbt_valid_to` in cu
 The value assigned to `dbt_valid_to_current` should be a string representing a valid date or timestamp, depending on your database's requirements. Use expressions that work within the data platform.
 
 ### Managing records
-- For existing records &mdash; To avoid any unintentional data modification, dbt will _not_ automatically adjust the current value in the existing `dbt_valid_to` column. Existing current records will still have `dbt_valid_to` set to `NULL`.
+- **For existing records** &mdash; To avoid any unintentional data modification, dbt will _not_ automatically adjust the current value in the existing `dbt_valid_to` column. Existing current records will still have `dbt_valid_to` set to `NULL`.
 
-- For new records &mdash;  Any new records inserted after applying the `dbt_valid_to_current` configuration will have `dbt_valid_to` set to the specified value (for example, '9999-12-31'), instead of `NULL`.
+- **For new records** &mdash;  Any new records inserted after applying the `dbt_valid_to_current` configuration will have `dbt_valid_to` set to the specified value (for example, '9999-12-31'), instead of `NULL`.
 
 This means your snapshot table will have current records with `dbt_valid_to` values of both `NULL` (from existing data) and the new specified value (from new data). If you'd rather have consistent `dbt_valid_to` values for current records, you can either manually update existing records in your snapshot table where `dbt_valid_to` is `NULL` to match your `dbt_valid_to_current` value or rebuild your snapshot table.
 
