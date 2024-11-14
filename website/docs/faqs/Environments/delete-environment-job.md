@@ -18,7 +18,7 @@ To delete a job or multiple jobs in dbt Cloud:
 4. Scroll to the bottom of the page and click **Delete** to delete the job. <br />
 
 <figure>
-<img src="/img/docs/dbt-cloud/cloud-configuring-dbt-cloud/delete-job.png" width="100%"/>
+<Lightbox src="/img/docs/dbt-cloud/cloud-configuring-dbt-cloud/delete-job.png" width="100%" title="Delete a job"/>
 <figcaption align = "center">Delete a job</figcaption>
 </figure>
 
