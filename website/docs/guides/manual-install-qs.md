@@ -162,7 +162,7 @@ You should have an output that looks like this:
 
 Commit your changes so that the repository contains the latest code.
 
-1. Link the GitHub repository you created to your dbt project by running the following commands in Terminal. Make sure you use the correct git URL for your repository, which you should have saved from step 5 in [Create a repository](/guides/manual-install?step=2).
+1. Link the GitHub repository you created to your dbt project by running the following commands in Terminal. Make sure you use the correct git URL for your repository, which you should have saved from step 5 in [Create a repository](https://docs.getdbt.com/guides/manual-install?step=2).
 
 ```shell
 git init
