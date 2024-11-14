@@ -36,7 +36,7 @@ Deleting an environment automatically deletes its associated job(s). If you want
 4. Scroll to the bottom of the page and click **Delete** to delete the environment. <br />
 
 <figure>
-<img src="/img/docs/dbt-cloud/cloud-configuring-dbt-cloud/delete-environment.png" width="100%"/>
+<Lightbox src="/img/docs/dbt-cloud/cloud-configuring-dbt-cloud/delete-environment.png" width="100%"/> title="Delete an environment"/>
 <figcaption align = "center">Delete an environment</figcaption>
 </figure>
 
