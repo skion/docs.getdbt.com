@@ -33,7 +33,6 @@ dbt reports the comparison differences in:
 
 ### Speeding up comparisons
 
-It's common for CI jobs to only [build a subset of data](/best-practices/best-practice-workflows#limit-the-data-processed-when-in-development) (for example only the last 7 days of data). 
 
 When an [`event_time`](/reference/resource-configs/event-time) column is specified on your model, compare changes can optimize comparisons by using only the overlapping timeframe (meaning the timeframe exists in both the CI and production environment), helping you avoid incorrect row-count changes and return results faster.
 
