@@ -39,7 +39,7 @@ When an [`event_time`](/reference/resource-configs/event-time) column is specifi
 
 This is useful in scenarios like:
 - **Subset of data in CI** &mdash; When CI builds only a subset of data (like the most recent 7 days), compare changes might interpret the excluded data as "deleted rows." Configuring `event_time` allows you to avoid this issue by limiting comparisons to the overlapping timeframe, preventing false alerts about data deletions that are just filtered out in CI.
-- **Fresher data in CI than in production** &mdash; When your CI job includes fresher data than production, compare changes might flag the additional rows as "new" data, even though they’re just fresher data in CI. With `event_time` configured, the comparison only includes the shared timeframe and correctly reflects actual changes in the data.
+- **Fresher data in CI than in production** &mdash; When your CI job includes fresher data than production (because it has run more recently), compare changes might flag the additional rows as "new" data, even though they’re just fresher data in CI. With `event_time` configured, the comparison only includes the shared timeframe and correctly reflects actual changes in the data.
 
 <Lightbox src="/img/docs/deploy/apples_to_apples.png" width="90%" title="event_time ensures the same time-slice of data is accurately compared between your CI and production environments." />
 
