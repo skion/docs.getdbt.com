@@ -139,7 +139,7 @@ sources:
 
 ## Definition
 
-Set the `event_time` to the name of the field that represents the timestamp of the event, as opposed to an event ingestion date.  You can configure `event_time` for a [model](/docs/build/models), [seed](/docs/build/seeds), or [source](/docs/build/sources) in your `dbt_project.yml` file, property YAML file, or config block. 
+Set the `event_time` to the name of the field that represents the timestamp of the event -- "at what time did the row occur" -- as opposed to an event ingestion date.  You can configure `event_time` for a [model](/docs/build/models), [seed](/docs/build/seeds), or [source](/docs/build/sources) in your `dbt_project.yml` file, property YAML file, or config block. 
 
 Here are some examples of good and bad `event_time` columns:
 
