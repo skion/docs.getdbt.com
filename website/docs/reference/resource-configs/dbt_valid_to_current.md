@@ -48,7 +48,7 @@ snapshots:
 
 Use the `dbt_valid_to_current` config to set a custom future date for `dbt_valid_to` in new snapshot columns. When set, dbt will use this specified value instead of `NULL` for `dbt_valid_to` in the snapshot table.
 
-This approach makes it easier to assign a custom date date, work in a join, or perform range-based filtering that require an end date.
+This approach makes it easier to assign a custom date, work in a join, or perform range-based filtering that requires an end date.
 
 ### Considerations
 
