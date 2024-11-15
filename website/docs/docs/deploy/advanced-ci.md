@@ -35,7 +35,7 @@ dbt reports the comparison differences in:
 
 It's common for CI jobs to only [build a subset of data](/best-practices/best-practice-workflows#limit-the-data-processed-when-in-development) (for example only the last 7 days of data). 
 
-When an [`event_time`](/reference/resource-configs/event-time) column is specified on your model, compare changes can optimize comparisons by using only the overlapping timeframe (meaning the timeframe exists in both the CI and production environment), helping you avoid incorrect row-count changes to return results faster.
+When an [`event_time`](/reference/resource-configs/event-time) column is specified on your model, compare changes can optimize comparisons by using only the overlapping timeframe (meaning the timeframe exists in both the CI and production environment), helping you avoid incorrect row-count changes and return results faster.
 
 This is useful in scenarios like:
 - **Subset of data in CI** &mdash; When CI builds only a subset of data (like the most recent 7 days), compare changes might interpret the excluded data as "deleted rows." Configuring `event_time` allows you to avoid this issue by limiting comparisons to the overlapping timeframe, preventing false alerts about data deletions that are just filtered out in CI.
