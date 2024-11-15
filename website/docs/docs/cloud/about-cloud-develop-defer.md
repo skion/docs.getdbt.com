@@ -16,7 +16,7 @@ Both the dbt Cloud IDE and the dbt Cloud CLI enable users to natively defer to p
 When using `--defer`, dbt Cloud will follow this order of execution for resolving the `{{ ref() }}` functions.
 
 1. If a development version of a deferred relation exists, dbt preferentially uses the development database location when resolving the reference.
-2. If a development version does not exist, dbt uses the staging locations of parent relations based on metadata from the staging environment.
+2. If a development version doesn't exist, dbt uses the staging locations of parent relations based on metadata from the staging environment.
 3. If a development version AND staging version do not exist, dbt uses the production locations of parent relations based on metadata from the production environment.
 
 **Note:** Passing the `--favor-state` flag will always resolve refs using production metadata, regardless of the presence of a development relation, skipping step #1.
