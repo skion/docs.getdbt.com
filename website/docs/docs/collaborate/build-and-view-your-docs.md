@@ -51,7 +51,7 @@ dbt Docs, available on developer plans or dbt Core users, generates a website fr
 
 You configure project documentation to generate documentation when the job you set up in the previous section runs. In the project settings, specify the job that generates documentation artifacts for that project. Once you configure this setting, subsequent runs of the job will automatically include a step to generate documentation.
 
-1. From dbt Cloud, click on your account name in the left side menu and, select **Account settings**.
+1. From dbt Cloud, click on your account name in the left side menu and select **Account settings**.
 2. Navigate to **Projects** and select the project that needs documentation.
 3. Click **Edit**.
 4. Under **Artifacts**, select the job that should generate docs when it runs and click **Save**.
