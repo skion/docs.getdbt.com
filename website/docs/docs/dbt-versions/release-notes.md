@@ -19,7 +19,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 \* The official release date for this new format of release notes is May 15th, 2024. Historical release notes for prior dates may not reflect all available features released earlier this year or their tenancy availability.
 
 ## November 2024
-- **New**: Use the [`dbt_valid_to_current`](/reference/resource-configs/dbt_valid_to_current) config to set a custom future date for `dbt_valid_to` in new snapshot columns. When set, dbt will use this specified value instead of `NULL` for `dbt_valid_to` in the snapshot table.
+- **New**: Use the [`dbt_valid_to_current`](/reference/resource-configs/dbt_valid_to_current) config to set a custom indicator for the value of `dbt_valid_to` in current snapshot records (like a future date). By default, this value is `NULL`. When configured, dbt will use the specified value instead of `NULL` for `dbt_valid_to` in the snapshot table. This feature is available in dbt Cloud Versionless and dbt Core v1.9.
 - **Fix**: This update improves [dbt Semantic Layer Tableau integration](/docs/cloud-integrations/semantic-layer/tableau) making query parsing more reliable. Some key fixes include:
   - Error messages for unsupported joins between saved queries and ALL tables.
   - Improved handling of queries when multiple tables are selected in a data source.

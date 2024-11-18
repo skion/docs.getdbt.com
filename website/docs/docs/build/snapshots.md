@@ -216,8 +216,8 @@ When you run the [`dbt snapshot` command](/reference/commands/snapshot):
 
 #### Note 
 - These column names can be customized to your team or organizational conventions using the [snapshot_meta_column_names](#snapshot-meta-fields) config.
-- If you have set the `dbt_valid_to_current` configuration option, then instead of `NULL`, the `dbt_valid_to` field in future records will be set to your specified value (such as `9999-12-31`).
-
+- Use the `dbt_valid_to_current` config to set a custom indicator for the value of `dbt_valid_to` in current snapshot records (like a future date such as `9999-12-31`). By default, this value is `NULL`. When set, dbt will use this specified value instead of `NULL` for `dbt_valid_to` in the snapshot table.
+  
 Snapshots can be referenced in downstream models the same way as referencing models — by using the [ref](/reference/dbt-jinja-functions/ref) function.
 
 ## Detecting row changes
@@ -403,7 +403,7 @@ Snapshot <Term id="table">tables</Term> will be created as a clone of your sourc
 
 Starting in 1.9 or with [dbt Cloud Versionless](/docs/dbt-versions/upgrade-dbt-version-in-cloud#versionless):
 - These column names can be customized to your team or organizational conventions using the [`snapshot_meta_column_names`](/reference/resource-configs/snapshot_meta_column_names) config. 
-- Use the [`dbt_valid_to_current`](/reference/resource-configs/dbt_valid_to_current) config to set a custom future date for `dbt_valid_to` in new snapshot columns. When set, dbt will use this specified value instead of `NULL` for `dbt_valid_to` in the snapshot table.
+- Use the `dbt_valid_to_current` config to set a custom indicator for the value of `dbt_valid_to` in current snapshot records (like a future date such as `9999-12-31`). By default, this value is `NULL`. When set, dbt will use this specified value instead of `NULL` for `dbt_valid_to` in the snapshot table.
 
 | Field          | Meaning | Usage |
 | -------------- | ------- | ----- |

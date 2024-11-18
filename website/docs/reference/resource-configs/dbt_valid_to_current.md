@@ -46,9 +46,17 @@ snapshots:
 
 ## Description
 
-Use the `dbt_valid_to_current` config to set a custom future date for `dbt_valid_to` in new snapshot columns. When set, dbt will use this specified value instead of `NULL` for `dbt_valid_to` in the snapshot table.
+Use the `dbt_valid_to_current` config to set a custom indicator for the value of `dbt_valid_to` in current snapshot records (like a future date). By default, this value is `NULL`. When set, dbt will use this specified value instead of `NULL` for `dbt_valid_to` in the snapshot table.
 
 This approach makes it easier to assign a custom date, work in a join, or perform range-based filtering that requires an end date.
+
+:::warning
+
+To avoid any unintentional data modification, dbt will _not_ automatically adjust the current value in the existing `dbt_valid_to` column. Existing current records will still have `dbt_valid_to` set to `NULL`.
+
+Any new records inserted _after_ applying the `dbt_valid_to_current` configuration will have `dbt_valid_to` set to the specified value (like '9999-12-31'), instead of the default `NULL` value.
+
+:::
 
 ### Considerations
 
@@ -66,12 +74,16 @@ If you prefer to use a specific value instead of `NULL` for `dbt_valid_to` in cu
 
 The value assigned to `dbt_valid_to_current` should be a string representing a valid date or timestamp, depending on your database's requirements. Use expressions that work within the data platform.
 
-### Managing records
+
+## Impact on snapshot records
+
+When you set `dbt_valid_to_current`, it affects how dbt manages the `dbt_valid_to` column in your snapshot table:
+
 - **For existing records** &mdash; To avoid any unintentional data modification, dbt will _not_ automatically adjust the current value in the existing `dbt_valid_to` column. Existing current records will still have `dbt_valid_to` set to `NULL`.
 
 - **For new records** &mdash;  Any new records inserted after applying the `dbt_valid_to_current` configuration will have `dbt_valid_to` set to the specified value (for example, '9999-12-31'), instead of `NULL`.
 
-This means your snapshot table will have current records with `dbt_valid_to` values of both `NULL` (from existing data) and the new specified value (from new data). If you'd rather have consistent `dbt_valid_to` values for current records, you can either manually update existing records in your snapshot table where `dbt_valid_to` is `NULL` to match your `dbt_valid_to_current` value or rebuild your snapshot table.
+This means your snapshot table will have current records with `dbt_valid_to` values of both `NULL` (from existing data) and the new specified value (from new data). If you'd rather have consistent `dbt_valid_to` values for current records, you can manually update existing records in your snapshot table where `dbt_valid_to` is `NULL` to match your `dbt_valid_to_current` value.
 
 ## Example
 
