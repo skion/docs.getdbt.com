@@ -71,7 +71,7 @@ To connect a personal GitHub account:
 
 1. From dbt Cloud, click on your account name in the left side menu and select **Account settings**.
 
-2. Select **Personal profile** under the **Your profile** section.. 
+2. Select **Personal profile** under the **Your profile** section.
 
 3. Scroll down to **Linked Accounts**. If your GitHub account is not connected, you’ll see "No connected account". 
 
