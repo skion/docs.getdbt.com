@@ -29,7 +29,7 @@ To connect your dbt Cloud account to your GitHub account:
 
 2. Select **Personal profile** under the **Your profile** section.
 
-3. Scroll down to **Linked Accounts**.
+3. Scroll down to **Linked accounts**.
 
 <Lightbox src="/img/docs/dbt-cloud/cloud-configuring-dbt-cloud/connecting-github/github-connect.png" title="Navigated to Linked Accounts under your profile"/>
 
