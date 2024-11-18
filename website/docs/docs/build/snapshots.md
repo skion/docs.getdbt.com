@@ -83,7 +83,7 @@ The following table outlines the configurations available for snapshots:
 | [schema](/reference/resource-configs/schema) | Specify a custom schema for the snapshot | No | snapshots |
 | [alias](/reference/resource-configs/alias)   | Specify an alias for the snapshot | No | your_custom_snapshot |
 | [strategy](/reference/resource-configs/strategy) | The snapshot strategy to use. Valid values: `timestamp` or `check` | Yes | timestamp |
-| [unique_key](/reference/resource-configs/unique_key) | A <Term id="primary-key" /> column or expression for the record | Yes | id |
+| [unique_key](/reference/resource-configs/unique_key) | A <Term id="primary-key" /> column(s) (string or array) or expression for the record | Yes |  `id` or `[order_id, product_id]` |
 | [check_cols](/reference/resource-configs/check_cols) | If using the `check` strategy, then the columns to check | Only if using the `check` strategy | ["status"] |
 | [updated_at](/reference/resource-configs/updated_at) | If using the `timestamp` strategy, the timestamp column to compare | Only if using the `timestamp` strategy | updated_at |
 | [invalidate_hard_deletes](/reference/resource-configs/invalidate_hard_deletes) | Find hard deleted records in source and set `dbt_valid_to` to current time if the record no longer exists | No | True |
@@ -390,29 +390,6 @@ snapshots:
 
 </VersionBlock>
 
-## Snapshot query best practices
-
-This section outlines some best practices for writing snapshot queries:
-
-- #### Snapshot source data
-  Your models should then select from these snapshots, treating them like regular data sources. As much as possible, snapshot your source data in its raw form and use downstream models to clean up the data
-
-- #### Use the `source` function in your query
-  This helps when understanding <Term id="data-lineage">data lineage</Term> in your project.
-
-- #### Include as many columns as possible
-  In fact, go for `select *` if performance permits! Even if a column doesn't feel useful at the moment, it might be better to snapshot it in case it becomes useful – after all, you won't be able to recreate the column later.
-
-- #### Avoid joins in your snapshot query
-  Joins can make it difficult to build a reliable `updated_at` timestamp. Instead, snapshot the two tables separately, and join them in downstream models.
-
-- #### Limit the amount of transformation in your query
-  If you apply business logic in a snapshot query, and this logic changes in the future, it can be impossible (or, at least, very difficult) to apply the change in logic to your snapshots.
-
-Basically – keep your query as simple as possible! Some reasonable exceptions to these recommendations include:
-* Selecting specific columns if the table is wide.
-* Doing light transformation to get data into a reasonable shape, for example, unpacking a <Term id="json" /> blob to flatten your source data into columns.
-
 ## Snapshot meta-fields
 
 Snapshot <Term id="table">tables</Term> will be created as a clone of your source dataset, plus some additional meta-fields*.
@@ -498,7 +475,9 @@ Snapshot results:
 
 <VersionBlock firstVersion="1.9">
 
-This section is for users on dbt versions 1.8 and earlier. To configure snapshots in versions 1.9 and later, refer to [Configuring snapshots](#configuring-snapshots). The latest versions use an updated snapshot configuration syntax that optimizes performance.
+For information about configuring snapshots in dbt versions 1.8 and earlier, select **1.8** from the documentation version picker, and it will appear in this section.
+
+To configure snapshots in versions 1.9 and later, refer to [Configuring snapshots](#configuring-snapshots). The latest versions use an updated snapshot configuration syntax that optimizes performance.
 
 </VersionBlock>
 
