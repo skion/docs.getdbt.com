@@ -106,7 +106,7 @@ To set environment variables in the dbt Cloud CLI for your dbt project:
 
 1. From dbt Cloud, click on your account name in the left side menu and select **Account settings**.
 2. Under the **Your profile** section, select **Credentials**.
-3. Click on your project and scroll to the **Environment Variables** section.
+3. Click on your project and scroll to the **Environment variables** section.
 4. Click **Edit** on the lower right and then set the user-level environment variables.  
 
 ## Use the dbt Cloud CLI
