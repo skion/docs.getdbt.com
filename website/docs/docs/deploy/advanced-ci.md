@@ -36,8 +36,7 @@ dbt reports the comparison differences in:
 
 <Lightbox src="/img/docs/dbt-cloud/example-ci-compare-changes-tab.png" width="85%" title="Example of the Compare tab" />
 
-### Speeding up comparisons
-
+### Optimizing comparisons
 
 When an [`event_time`](/reference/resource-configs/event-time) column is specified on your model, compare changes can optimize comparisons by using only the overlapping timeframe (meaning the timeframe exists in both the CI and production environment), helping you avoid incorrect row-count changes and return results faster.
 

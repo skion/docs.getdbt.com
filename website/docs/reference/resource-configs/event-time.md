@@ -152,7 +152,7 @@ Here are some examples of good and bad `event_time` columns:
   - `_fivetran_synced` &mdash; This isn't the time that the event happened, it's the time that the event was ingested.
   - `last_updated_at` &mdash; This isn't a good use case as this will keep changing over time. 
 
-`event_time` is required for [Incremental microbatch](/docs/build/incremental-microbatch) and highly recommended for [Advanced CI's compare changes](/docs/deploy/advanced-ci#speeding-up-comparisons) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
+`event_time` is required for [Incremental microbatch](/docs/build/incremental-microbatch) and highly recommended for [Advanced CI's compare changes](/docs/deploy/advanced-ci#optimizing-comparisons) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
 
 ## Examples
 
