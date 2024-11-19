@@ -6,7 +6,7 @@ default_value: {NULL}
 id: "dbt_valid_to_current"
 ---
 
-Available in 1.9 or with [Versionless](/docs/dbt-versions/upgrade-dbt-version-in-cloud#versionless) dbt Cloud.
+Available from dbt v1.9 or with [Versionless](/docs/dbt-versions/upgrade-dbt-version-in-cloud#versionless) dbt Cloud.
 
 <File name='snapshots/schema.yml'>
 
