@@ -83,7 +83,7 @@ When you set `dbt_valid_to_current`, it affects how dbt manages the `dbt_valid_t
 
 - **For new records** &mdash;  Any new records inserted after applying the `dbt_valid_to_current` configuration will have `dbt_valid_to` set to the specified value (for example, '9999-12-31'), instead of `NULL`.
 
-This means your snapshot table will have current records with `dbt_valid_to` values of both `NULL` (from existing data) and the new specified value (from new data). If you'd rather have consistent `dbt_valid_to` values for current records, you can manually update existing records in your snapshot table where `dbt_valid_to` is `NULL` to match your `dbt_valid_to_current` value.
+This means your snapshot table will have current records with `dbt_valid_to` values of both `NULL` (from existing data) and the new specified value (from new data). If you'd rather have consistent `dbt_valid_to` values for current records, you can manually update existing records in your snapshot table (where `dbt_valid_to` is `NULL`) to match your `dbt_valid_to_current` value.
 
 ## Example
 
