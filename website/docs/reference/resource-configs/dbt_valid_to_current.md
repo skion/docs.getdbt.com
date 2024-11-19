@@ -1,6 +1,6 @@
 ---
 resource_types: [snapshots]
-description: "Snapshot dbt_valid_to_current custom date"
+description: "Use the `dbt_valid_to_current` config to set a custom indicator for the value of `dbt_valid_to` in current snapshot records"
 datatype: "{<dictionary>}"
 default_value: {NULL}
 id: "dbt_valid_to_current"

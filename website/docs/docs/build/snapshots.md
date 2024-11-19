@@ -173,7 +173,7 @@ This strategy handles column additions and deletions better than the `check` str
 
 By default, `dbt_valid_to` is `NULL` for current records. However, if you set the [`dbt_valid_to_current` configuration](/reference/resource-configs/dbt_valid_to_current) (available in Versionless and 1.9 and higher), `dbt_valid_to` will be set to your specified value (such as `9999-12-31`) for current records.
 
-This simplifies your SQL queries by avoiding `NULL` checks and allowing for straightforward date range filtering. 
+This allows for straightforward date range filtering.
 
 </Expandable>
 
