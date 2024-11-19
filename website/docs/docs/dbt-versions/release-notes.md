@@ -20,6 +20,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 ## November 2024
 - **New**: Use the [`dbt_valid_to_current`](/reference/resource-configs/dbt_valid_to_current) config to set a custom indicator for the value of `dbt_valid_to` in current snapshot records (like a future date). By default, this value is `NULL`. When configured, dbt will use the specified value instead of `NULL` for `dbt_valid_to` for current records in the snapshot table. This feature is available in dbt Cloud Versionless and dbt Core v1.9.
+- **New**: Use the `event_time` configuration to specify "at what time did the row occur." This configuration is required for [Incremental microbatch](/docs/build/incremental-microbatch) and can be added to ensure you're comparing overlapping times in [Advanced CI's compare changes](/docs/deploy/advanced-ci). Available in dbt Cloud Versionless and dbt Core v1.9 and higher. Refer to [event_time](/reference/resource-configs/event-time) for more information.
 - **Fix**: This update improves [dbt Semantic Layer Tableau integration](/docs/cloud-integrations/semantic-layer/tableau) making query parsing more reliable. Some key fixes include:
   - Error messages for unsupported joins between saved queries and ALL tables.
   - Improved handling of queries when multiple tables are selected in a data source.
@@ -28,6 +29,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 - **Enhancement**: The dbt Semantic Layer supports creating new credentials for users who don't have permissions to create service tokens.  In the **Credentials & service tokens** side panel, the **+Add Service Token** option is unavailable for those users who don't have permission. Instead, the side panel displays a message indicating that the user doesn't have permission to create a service token and should contact their administration. Refer to [Set up dbt Semantic Layer](/docs/use-dbt-semantic-layer/setup-sl) for more details.
 
 ## October 2024
+
 <Expandable alt_header="Coalesce 2024 announcements">
 
   Documentation for new features and functionality announced at Coalesce 2024:
