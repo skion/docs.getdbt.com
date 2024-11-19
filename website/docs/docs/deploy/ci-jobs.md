@@ -43,7 +43,7 @@ To make CI job creation easier, many options on the **CI job** page are set to d
       :::info Optimization tip 
       When you enable the **dbt compare** checkbox, you can customize the comparison command to optimize your CI job. For example, if you have large models that take a long time to compare, you can exclude them to speed up the process using the [`--exclude` flag](/reference/node-selection/exclude). Refer to [compare changes custom commands](/docs/deploy/job-commands#compare-changes-custom-commands) for more details.
 
-      Additionally, if you set [`event_time`](/docs/build/incremental-microbatch#relevant-configs) in your models/seeds/snapshots/sources, it allows you to compare matching date ranges between tables by filtering to overlapping date ranges. This is useful for faster CI workflow or custom sampling set ups.
+      Additionally, if you set [`event_time`](/reference/resource-configs/event-time) in your models/seeds/snapshots/sources, it allows you to compare matching date ranges between tables by filtering to overlapping date ranges. This is useful for faster CI workflow or custom sampling set ups.
       :::
 
     - **Compare changes against an environment (Deferral)** &mdash; By default, it’s set to the **Production** environment if you created one. This option allows dbt Cloud to check the state of the code in the PR against the code running in the deferred environment, so as to only check the modified code, instead of building the full table or the entire DAG.
