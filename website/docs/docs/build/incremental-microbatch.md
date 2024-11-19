@@ -48,7 +48,7 @@ We run the `sessions` model on October 1, 2024, and then again on October 2. It 
 
 <TabItem value="Model definition">
 
-The `event_time` for the `sessions` model is set to `session_start`, which marks the beginning of a user’s session on the website. This setting allows dbt to combine multiple page views (each tracked by their own `page_view_start` timestamps) into a single session. This way, `session_start` differentiates the timing of individual page views from the broader timeframe of the entire user session.
+The [`event_time`](/reference/resource-configs/event-time) for the `sessions` model is set to `session_start`, which marks the beginning of a user’s session on the website. This setting allows dbt to combine multiple page views (each tracked by their own `page_view_start` timestamps) into a single session. This way, `session_start` differentiates the timing of individual page views from the broader timeframe of the entire user session.
   
 <File name="models/sessions.sql">
 
