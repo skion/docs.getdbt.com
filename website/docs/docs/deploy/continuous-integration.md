@@ -65,8 +65,9 @@ When [enabled for your CI job](/docs/deploy/ci-jobs#set-up-ci-jobs), dbt invokes
 If the linter runs into errors, you can specify whether dbt should stop running the job on error or continue running it on error. When failing jobs, it helps reduce compute costs by avoiding builds for pull requests that don't meet your SQL code quality CI check.
 
 #### To configure SQLFluff linting:
+You can optionally configure SQLFluff linting rules to override default linting behavior.
 
-- (Optional) Use [SQLFluff Configuration Files](https://docs.sqlfluff.com/en/stable/configuration/setting_configuration.html#configuration-files) to override the default linting behavior in dbt.
+- Use [SQLFluff Configuration Files](https://docs.sqlfluff.com/en/stable/configuration/setting_configuration.html#configuration-files) to override the default linting behavior in dbt.
 - Create a `.sqlfluff` configuration file in your project, add your linting rules to it, and dbt Cloud will use them when linting.
     - When configuring, you can use `dbt` as the templater (for example, `templater = dbt`)
     - If you’re using the dbt Cloud IDE, dbt Cloud CLI, or any other editor, refer to [Customize linting](/docs/cloud/dbt-cloud-ide/lint-format#customize-linting) for guidance on how to add the dbt-specific (or dbtonic) linting rules we use for own project.
