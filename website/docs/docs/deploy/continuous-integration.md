@@ -66,7 +66,7 @@ If the linter runs into errors, you can specify whether dbt should stop running 
 
 #### To configure SQLFluff linting:
 
-- Use [SQLFluff Configuration Files](https://docs.sqlfluff.com/en/stable/configuration/setting_configuration.html#configuration-files) to override the default linting behavior in dbt.
+- (Optional) Use [SQLFluff Configuration Files](https://docs.sqlfluff.com/en/stable/configuration/setting_configuration.html#configuration-files) to override the default linting behavior in dbt.
 - Create a `.sqlfluff` configuration file in your project, add your linting rules to it, and dbt Cloud will use them when linting.
     - When configuring, you can use `dbt` as the templater (for example, `templater = dbt`)
     - If you’re using the dbt Cloud IDE, dbt Cloud CLI, or any other editor, refer to [Customize linting](/docs/cloud/dbt-cloud-ide/lint-format#customize-linting) for guidance on how to add the dbt-specific (or dbtonic) linting rules we use for own project.
